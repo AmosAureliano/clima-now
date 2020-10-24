@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    background-color: #033E5E;
+    width: auto;
+    height: 100%; /*Reformular valores aqui*/
+    flex: 1;
+}
+
+.header{
+    padding: 20px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.header img{
+    width: 150px;
+    height: 50px;
+}
+
+.header input{
+    width: 70%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-left: 6%;
+    outline-style: none;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.header input:focus{
+    border-bottom: 3px solid #FFFFFF;
+}
+
+.header button{
+    background-color: #079BEB;
+    padding: 1%;
+    border: none;
+    outline-style: none;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header button:hover{
+    background-color: #448fb8;
+}
+
+.body{
+    display: grid;
+    /*grid-template-columns: 500px 100px 100px 100px;*/
+    grid-template-areas: 
+    "hoje amanha amanha"
+    "hoje depois depois"
+    "hoje dedepois dedepois";
+    padding: 3% 4%;
+    grid-gap: 10px;
+    color: #FFFFFF;
+}
+
+.hoje{
+    background-color:  #079BEB;
+    grid-area: hoje;
+    text-align: center;
+    padding: 3%;
+}
+
+.hoje #day{
+    font-weight: 200;
+    font-size: 2rem;
+}
+
+.hoje #local{
+    font-weight: 300;
+    font-size: 4rem;
+}
+.hoje #clima{
+    width: 40%;
+}
+
+.hoje #minimum, #maximum{
+    width: 8%;
+}
+
+.hoje p{
+    font-size: 4.5rem;
+    font-weight: 300;
+}
+.amanha{
+    background-color:  #079BEB;
+    grid-area: amanha;
+}
+
+.depois-de-amanha{
+    background-color:  #079BEB;
+    grid-area: depois;
+}
+
+.daqui-a-dois-dias{
+    background-color:  #079BEB;
+    grid-area: dedepois;
+}
+
+.temperature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
