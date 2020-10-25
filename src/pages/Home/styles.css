@@ -12,10 +12,11 @@
 }
 
 .header{
-    padding: 20px;
+    padding: 20px 70px;
     height: 50px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .header img{
@@ -29,7 +30,7 @@
     border: none;
     border-bottom: 1px solid #FFFFFF;
     transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-    margin-left: 6%;
+    margin-left: 5%;
     outline-style: none;
     color: #FFFFFF;
     font-size: 20px;
@@ -78,15 +79,20 @@
 .hoje #local{
     font-weight: 300;
     font-size: 4rem;
+    margin-top: 5%;
 }
 .hoje #clima{
     width: 40%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
-.hoje #minimum, #maximum{
-    width: 8%;
+.hoje #minimum{
+    width: 5%;
 }
-
+.hoje #maximum{
+    width: 5%;
+}
 .hoje p{
     font-size: 4.5rem;
     font-weight: 300;
@@ -94,20 +100,71 @@
 .amanha{
     background-color:  #079BEB;
     grid-area: amanha;
+    padding: 3%;
+}
+.amanha #day{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.amanha #clima{
+    width: 15%;
+}
+.amanha #minimum, #maximum{
+    width: 2%;
+    height: 10%;
+    margin-top: 8%;
+}
+.amanha p{
+    font-size: 5rem;
 }
 
 .depois-de-amanha{
     background-color:  #079BEB;
     grid-area: depois;
+    padding: 3%;
 }
-
+.depois-de-amanha #day{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.depois-de-amanha #clima{
+    width: 15%;
+}
+.depois-de-amanha #minimum, #maximum{
+    width: 2%;
+    height: 10%;
+    margin-top: 8%;
+}
+.depois-de-amanha p{
+    font-size: 5rem;
+}
 .daqui-a-dois-dias{
     background-color:  #079BEB;
     grid-area: dedepois;
+    padding: 3%;
 }
-
+.daqui-a-dois-dias #day{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.daqui-a-dois-dias #clima{
+    width: 15%;
+}
+.daqui-a-dois-dias #minimum, #maximum{
+    width: 2%;
+    height: 10%;
+    margin-top: 8%;
+}
+.daqui-a-dois-dias p{
+    font-size: 5rem;
+}
 .temperature{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.temperature-container{
+    display: flex;
+    justify-content: space-around;
 }

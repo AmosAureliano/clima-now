@@ -32,15 +32,39 @@ export default function Home(){
                 </div>
 
                 <div className="amanha">
-                    <h1>TEST2</h1>
+                    <h1 id="day">SEXTA-FEIRA</h1>
+                    
+                    <div className="temperature-container">
+                        <img src={cloudTest} id="clima"/>
+                        <img src={minimum} id="minimum"/>
+                        <p>20º</p>
+                        <img src={maximum} id="maximum"/>
+                        <p>27º</p>
+                    </div>
                 </div>
 
                 <div className="depois-de-amanha">
-                    <h1>TEST3</h1>
+                    <h1 id="day">SÁBADO</h1>
+                    
+                    <div className="temperature-container">
+                        <img src={cloudTest} id="clima"/>
+                        <img src={minimum} id="minimum"/>
+                        <p>20º</p>
+                        <img src={maximum} id="maximum"/>
+                        <p>27º</p>
+                    </div>
                 </div>
 
                 <div className="daqui-a-dois-dias">
-                    <h1>TEST4</h1>
+                    <h1 id="day">DOMINGO</h1>
+                    
+                    <div className="temperature-container">
+                        <img src={cloudTest} id="clima"/>
+                        <img src={minimum} id="minimum"/>
+                        <p>20º</p>
+                        <img src={maximum} id="maximum"/>
+                        <p>27º</p>
+                    </div>
                 </div>
             </div>
 
