@@ -19,12 +19,12 @@
 .container{
     background-color: #033E5E;
     width: auto;
-    height: 100%; /*Reformular valores aqui*/
+    height: 100vh; /*Reformular valores aqui*/
 }
 
 
 .header{
-    padding: 20px 50px;
+    padding: 40px 50px;
     height: 50px;
     display: flex;
     flex-direction: row;
@@ -43,10 +43,10 @@
     display: grid;
     /*grid-template-columns: 500px 100px 100px 100px;*/
     grid-template-areas: 
-    "hoje hoje hoje"
-    "hoje hoje hoje"
-    "hoje hoje hoje";
-    padding: 2% 4%;
+    "hoje velVento velVento"
+    "hoje umidade umidade"
+    ;
+    padding: 3% 4%;
     grid-gap: 10px;
     color: #FFFFFF;
 }
@@ -81,7 +81,32 @@
     text-align: center;
 }
 
+.velVento{
+    grid-area: velVento;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:  #079BEB;
+    padding: 3%;
+    font-size: 4rem;
+    font-weight: 200;
+}
+.velVento img{
+    width: 15%;
+}
 
+.umidade{
+    grid-area: umidade;
+    background-color:  #079BEB;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 4rem;
+    font-weight: 200;
+}
+.umidade img{
+    width: 15%;
+}
 .temperature{
     display: flex;
     justify-content: center;
@@ -93,8 +118,26 @@
     justify-content: space-around;
 }
 
+.footer{
+    text-align: center;
+    color: #FFFFFF;
+    bottom: 0;
+}
 @media(max-width: 760px){
+    .header{
+        padding: 10px 20px;
+    }
     .container{
-        height: 100vh;
+        height: 100%;
+    }
+    .body{
+        grid-template-areas: 
+        "hoje hoje hoje"
+        "velVento velVento velVento"
+        "umidade umidade umidade"
+        ;
+        padding: 3% 4%;
+        grid-gap: 10px;
+        color: #FFFFFF;
     }
 }
