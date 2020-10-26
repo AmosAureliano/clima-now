@@ -1,4 +1,4 @@
-<img src=https://i.imgur.com/HseChp5.png align=center/>
+<img src=https://i.imgur.com/HseChp5.png margin-left=30px/>
 
 # Clima Now
 
