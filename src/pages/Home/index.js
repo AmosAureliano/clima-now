@@ -83,32 +83,9 @@ export default function Home(){
         }else if(weather['weather']['0']['description'] == "neve" ){
             imagem = neve
         }
-        {/*Verificando velocidade do vento escala de beaufort para km*/}
-        if(weather['wind']['speed'] >=  1 && weather['wind']['speed'] < 2){
-            velVento = 4;
-        }else if(weather['wind']['speed'] >= 2 && weather['wind']['speed'] <3){
-            velVento =  8;
-        }else if(weather['wind']['speed'] >= 3 && weather['wind']['speed']  < 4){
-            velVento = 15;
-        }else if(weather['wind']['speed'] >= 4 && weather['wind']['speed'] < 5){
-            velVento =  25;
-        }else if(weather['wind']['speed']  >=5 && weather['wind']['speed'] < 6){
-            velVento = 34;
-        }else if(weather['wind']['speed']  >= 6 && weather['wind']['speed'] < 7){
-            velVento = 45;
-        }else if(weather['wind']['speed'] >= 7 && weather['wind']['speed'] < 8){
-            velVento = 58;
-        }else if(weather['wind']['speed'] >=8 && weather['wind']['speed'] < 9){
-            velVento = 69;
-        }else if(weather['wind']['speed'] >= 9 && weather['wind']['speed'] < 10){
-            velVento = 83;
-        }else if(weather['wind']['speed'] >= 10 && weather['wind']['speed'] < 11){
-            velVento = 96;
-        }else if(weather['wind']['speed'] >= 11 && weather['wind']['speed'] < 12){
-            velVento = 108;
-        }else if(weather['wind']['speed'] >= 12){
-            velVento = 150
-        }
+        
+        velVento = weather['wind']['speed'] * 3.6;
+        
         return(
             <div className="container">
                 <div className="header">
