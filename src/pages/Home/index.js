@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
 
 import './styles.css';
 
 import logo from '../../assets/imagens/logo.png';
-import cloudTest  from '../../assets/imagens/006-cloud.png';
 import minimum from '../../assets/imagens/minimum.png';
 import maximum from '../../assets/imagens/maximum.png';
+import loading from '../../assets/gifs/loading.gif';
+import nubladoNight from '../../assets/imagens/002-cloud-night.png';
+import nubladoMorning from '../../assets/imagens/004-clouds-sun.png';
+import chuva from '../../assets/imagens/006-cloud.png';
+import ceuLimpoDia from '../../assets/imagens/012-sun.png';
+import ceuLimpoNoite from '../../assets/imagens/013-half-moon.png';
+import nevoa from '../../assets/imagens/028-clouds.png';
+import trovoada from '../../assets/imagens/018-lighting.png';
+import neve from '../../assets/imagens/010-snow.png';
 
 export default function Home(){
-
+    var data = new Date();
+    var dias = ['Domingo', 'Segunda Feira', 'Terça Feira', 'Quarta Feira', 'Quinta Feira', 'Sexta Feira', 'Sábado']
     const [location, setLocation] = useState(false);
     const[weather, setWeather] = useState(false);
 
+    var imagem = '';
+
+    
     let getWeather = async (lat, long) => {
-
         let res = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
-
             params: {
                 lat: lat,
                 lon: long,
@@ -25,9 +34,7 @@ export default function Home(){
                 lang: 'pt',
                 units: 'metric'
             }
-
         });
-
         setWeather(res.data);
     }
 
@@ -41,70 +48,69 @@ export default function Home(){
 
     if(weather == false){
         return(
-            <div>Carregando....</div>
+
+            <div className="load-screen">
+                <img src={loading} alt="loading"/>
+                <p>Carregando....</p>
+                </div>
         )
     }else{
-        return(
 
+
+        if(weather['weather']['0']['description'] == "céu limpo"){
+            if(data.getHours() >= 5 && data.getHours() < 18){
+                imagem = ceuLimpoDia
+            }
+            else{
+                imagem = ceuLimpoNoite
+            }
+        }else if(weather['weather']['0']['description'] == "chuva leve" ||
+            weather['weather']['0']['description'] == "chuva de banho" ||
+            weather['weather']['0']['description'] == "chuva"){
+            
+            imagem = chuva    
+        }else if(weather['weather']['0']['description'] == "névoa" || weather['weather']['0']['description'] == "nevoa" || weather['weather']['0']['description'] == "nuvens dispersas"){
+            imagem =  nevoa
+        }else if(weather['weather']['0']['description'] == "poucas nuvens" || weather['weather']['0']['description'] == "Poucas nuvens" || weather['weather']['0']['description'] == "nuvens quebradas"){
+            if(data.getHours() >= 5 && data.getHours() < 18){
+                imagem = nubladoMorning
+            }
+            else{
+                imagem = nubladoNight
+            }
+        }else if( weather['weather']['0']['description'] == "trovoada" ){
+            imagem = trovoada
+        }else if(weather['weather']['0']['description'] == "neve" ){
+            imagem = neve
+        }
+
+
+
+
+        return(
+            
             <div className="container">
-    
                 <div className="header">
                     <img src={logo} alt="Logo ClimaNow"/>
-                    <input type="text" placeholder="Pesquise uma cidade"/>
-                    <button><AiOutlineSearch color="#FFFF" size="1.5vw"/></button>
-                    <p>*Permita a localização no browser</p>
+                    
+                    
                 </div>
+                <p id="warning">*Permita a localização no browser</p>
                 <div className="body">
                     <div className="hoje">
-                        <h2 id="day">QUINTA-FEIRA</h2>
+                        <h2 id="day">{dias[data.getDay()].toUpperCase()} {data.getHours()}:{data.getMinutes()}</h2>
                         <h1 id="local"> { weather['name'].toUpperCase()  }</h1>
-                        <img src={cloudTest} id="clima"/>
+                        <img src={imagem} id="clima"/>
+                        <p id="description">{weather['weather']['0']['description'].toUpperCase()}</p>
+
                         <div className="temperature">
-                            <img src={minimum} id="minimum"/>
-                            <p>{ weather['main']['temp_min']}</p>
-                            <img src={maximum} id="maximum"/>
-                            <p>{ weather['main']['temp_max']}</p>
-                        </div>
-                       
-                    </div>
-    
-                    <div className="amanha">
-                        <h1 id="day">SEXTA-FEIRA</h1>
-                        
-                        <div className="temperature-container">
-                            <img src={cloudTest} id="clima"/>
-                            <img src={minimum} id="minimum"/>
-                            <p>20º</p>
-                            <img src={maximum} id="maximum"/>
-                            <p>27º</p>
-                        </div>
-                    </div>
-    
-                    <div className="depois-de-amanha">
-                        <h1 id="day">SÁBADO</h1>
-                        
-                        <div className="temperature-container">
-                            <img src={cloudTest} id="clima"/>
-                            <img src={minimum} id="minimum"/>
-                            <p>20º</p>
-                            <img src={maximum} id="maximum"/>
-                            <p>27º</p>
-                        </div>
-                    </div>
-    
-                    <div className="daqui-a-dois-dias">
-                        <h1 id="day">DOMINGO</h1>
-                        
-                        <div className="temperature-container">
-                            <img src={cloudTest} id="clima"/>
-                            <img src={minimum} id="minimum"/>
-                            <p>20º</p>
-                            <img src={maximum} id="maximum"/>
-                            <p>27º</p>
-                        </div>
+                            
+
+                            <p>{ weather['main']['temp']}º</p>
+                            
+                        </div>       
                     </div>
                 </div>
-    
             </div>
         )
     }
