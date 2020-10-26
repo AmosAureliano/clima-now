@@ -33,7 +33,7 @@ Finalizado...
 - Mostra velocidade do vento
 - Mostra umidade
 
-[![](https://i.imgur.com/0tqtXTU.png)]()
+[![](https://i.imgur.com/0tqtXTU.png)](https://www.linkedin.com/in/am%C3%B3s-aureliano-689a36187/)
 
 [![](src/assets/imagens/my-banner.png)]()
 
