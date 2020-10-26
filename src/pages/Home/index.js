@@ -16,9 +16,12 @@ import neve from '../../assets/imagens/010-snow.png';
 import vento from '../../assets/imagens/024-wind.png';
 import umidade from '../../assets/imagens/003-rain.png';
 
+
 export default function Home(){
+
     let data = new Date();
     let dias = ['Domingo', 'Segunda Feira', 'Terça Feira', 'Quarta Feira', 'Quinta Feira', 'Sexta Feira', 'Sábado'];
+    
     const [location, setLocation] = useState(false);
     const[weather, setWeather] = useState(false);
 
@@ -48,16 +51,13 @@ export default function Home(){
 
     if(weather == false){
         return(
-
             <div className="load-screen">
                 <img src={loading} alt="loading"/>
                 <p>Carregando....</p>
                 </div>
         )
     }else{
-
         {/*Verificando nuvens*/}
-
         if(weather['weather']['0']['description'] == "céu limpo"){
             if(data.getHours() >= 5 && data.getHours() < 18){
                 imagem = ceuLimpoDia
@@ -68,7 +68,6 @@ export default function Home(){
         }else if(weather['weather']['0']['description'] == "chuva leve" ||
             weather['weather']['0']['description'] == "chuva de banho" ||
             weather['weather']['0']['description'] == "chuva"){
-            
             imagem = chuva    
         }else if(weather['weather']['0']['description'] == "névoa" || weather['weather']['0']['description'] == "nevoa" || weather['weather']['0']['description'] == "nuvens dispersas"){
             imagem =  nevoa
@@ -84,9 +83,7 @@ export default function Home(){
         }else if(weather['weather']['0']['description'] == "neve" ){
             imagem = neve
         }
-
         {/*Verificando velocidade do vento escala de beaufort para km*/}
-
         if(weather['wind']['speed'] >=  1 && weather['wind']['speed'] < 2){
             velVento = 4;
         }else if(weather['wind']['speed'] >= 2 && weather['wind']['speed'] <3){
@@ -113,12 +110,9 @@ export default function Home(){
             velVento = 150
         }
         return(
-            
             <div className="container">
                 <div className="header">
-                    <img src={logo} alt="Logo ClimaNow"/>
-                    
-                    
+                    <img src={logo} alt="Logo ClimaNow"/>     
                 </div>
                 <p id="warning">*Permita a localização no browser</p>
                 <div className="body">
@@ -127,34 +121,24 @@ export default function Home(){
                         <h1 id="local"> { weather['name'].toUpperCase()  }</h1>
                         <img src={imagem} id="clima"/>
                         <p id="description">{weather['weather']['0']['description'].toUpperCase()}</p>
-
                         <div className="temperature">
-                            
-
                             <p>{ weather['main']['temp']}º</p>
                             
                         </div>       
                     </div>
-                    
                     <div className="velVento">
                         <img src={vento} alt="vento"/>
                         <p>{velVento} Km/h</p>
                     </div>
-
                     <div className="umidade">
                         <img src={umidade}/>
                         <p>{weather['main']['humidity']}%</p>
                     </div>
-
-                    
                 </div>
-
                 <div className="footer">
                     <p>Projeto desenvolvido por Amós Aureliano</p>
                 </div>
             </div>
         )
-    }
-
-    
+    }   
 }
