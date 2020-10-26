@@ -1,4 +1,4 @@
-[![](https://i.imgur.com/HseChp5.png)]()
+<img src=https://i.imgur.com/HseChp5.png align=center/>
 
 # Clima Now
 
