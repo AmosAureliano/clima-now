@@ -1,3 +1,5 @@
+<img src=https://i.imgur.com/0tqtXTU.png width=102px />
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
