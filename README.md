@@ -5,6 +5,7 @@
 ## Mostrando informações de clima local com React e axios.
 
 [![](https://img.shields.io/static/v1?label=npm&message=v16.13.1&color)]()
+[![](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=blue)]()
 
 Tecnologias utilizadas:
   - React
@@ -34,5 +35,5 @@ Finalizado...
 
 [![](https://i.imgur.com/0tqtXTU.png)]()
 
-[![](blob:https://imgur.com/bd4301c6-7409-4f77-ad31-15ae76f4a898)]()
+[![](src/assets/imagens/my-banner.png)]()
 
