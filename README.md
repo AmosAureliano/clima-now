@@ -3,8 +3,6 @@
 </div>
 
 
-## Clima Now
-
 ## Mostrando informações de clima local com React e axios.
 
 [![](https://img.shields.io/static/v1?label=npm&message=v16.13.1&color)]()
