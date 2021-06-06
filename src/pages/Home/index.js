@@ -24,7 +24,7 @@ export default function Home(){
     
     const [location, setLocation] = useState(false);
     const[weather, setWeather] = useState(false);
-
+   
     let imagem = '';
     let velVento = 0;
     
@@ -49,7 +49,7 @@ export default function Home(){
     }, []);
 
 
-    if(weather == false){
+    if(weather === false){
         return(
             <div className="load-screen">
                 <img src={loading} alt="loading"/>
@@ -58,29 +58,29 @@ export default function Home(){
         )
     }else{
         {/*Verificando nuvens*/}
-        if(weather['weather']['0']['description'] == "céu limpo"){
+        if(weather['weather']['0']['description'] === "céu limpo"){
             if(data.getHours() >= 5 && data.getHours() < 18){
                 imagem = ceuLimpoDia
             }
             else{
                 imagem = ceuLimpoNoite
             }
-        }else if(weather['weather']['0']['description'] == "chuva leve" ||
-            weather['weather']['0']['description'] == "chuva de banho" ||
-            weather['weather']['0']['description'] == "chuva"){
+        }else if(weather['weather']['0']['description'] === "chuva leve" ||
+            weather['weather']['0']['description'] === "chuva de banho" ||
+            weather['weather']['0']['description'] === "chuva"){
             imagem = chuva    
-        }else if(weather['weather']['0']['description'] == "névoa" || weather['weather']['0']['description'] == "nevoa" || weather['weather']['0']['description'] == "nuvens dispersas"){
+        }else if(weather['weather']['0']['description'] === "névoa" || weather['weather']['0']['description'] === "nevoa" || weather['weather']['0']['description'] === "nuvens dispersas"){
             imagem =  nevoa
-        }else if(weather['weather']['0']['description'] == "poucas nuvens" || weather['weather']['0']['description'] == "Poucas nuvens" || weather['weather']['0']['description'] == "nuvens quebradas"){
+        }else if(weather['weather']['0']['description'] === "poucas nuvens" || weather['weather']['0']['description'] === "Poucas nuvens" || weather['weather']['0']['description'] === "nuvens quebradas"){
             if(data.getHours() >= 5 && data.getHours() < 18){
                 imagem = nubladoMorning
             }
             else{
                 imagem = nubladoNight
             }
-        }else if( weather['weather']['0']['description'] == "trovoada" ){
+        }else if( weather['weather']['0']['description'] === "trovoada" ){
             imagem = trovoada
-        }else if(weather['weather']['0']['description'] == "neve" ){
+        }else if(weather['weather']['0']['description'] === "neve" ){
             imagem = neve
         }
         
@@ -105,7 +105,7 @@ export default function Home(){
                     </div>
                     <div className="velVento">
                         <img src={vento} alt="vento"/>
-                        <p>{velVento} Km/h</p>
+                        <p>{velVento.toFixed(0)} Km/h</p>
                     </div>
                     <div className="umidade">
                         <img src={umidade}/>
@@ -113,7 +113,7 @@ export default function Home(){
                     </div>
                 </div>
                 <div className="footer">
-                    <p>Projeto desenvolvido por Amós Aureliano</p>
+                    <p>Orgulhosamente desenvolvido por <strong>Amós Aureliano</strong></p>
                 </div>
             </div>
         )
